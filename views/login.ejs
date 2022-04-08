@@ -1,0 +1,18 @@
+<h1>Login to your account</h1>
+<% if (locals.error !== undefined) { %>
+    <p><%= locals.error %></p>
+<% } %>
+<form action="/login" method="post">
+    <span>Email:</span>
+    <input type="email" name="email" required="true" />
+    <br>
+
+    <span>Password:</span>
+    <input type="password" name="password" required="true" />
+    <br>
+
+    <input type="submit" />
+
+    <input type="hidden" name="_csrf" value=<%= locals.csrfToken %> />
+
+</form>

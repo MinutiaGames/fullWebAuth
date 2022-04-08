@@ -18,7 +18,7 @@ router.get('/', loginRequired, (req, res, next) => {
             return res.redirect('/login');
         }
 
-        res.render('dashboard');
+        res.render('dashboard', { title: 'Dashboard' });
     });
 });
 

@@ -3,10 +3,15 @@ const helmet = require('helmet');
 const sessions = require('client-sessions');
 const csurf = require('csurf');
 const User = require('./models/user');
+const expressLayouts = require('express-ejs-layouts');
 
 function init(app) {
 
     app.use(express.urlencoded({ extended: false }));
+
+    app.use(expressLayouts);
+    
+    app.use(express.static('public'));
 
     // Setting this to true produces an error in Firefox
     app.use(helmet({ contentSecurityPolicy: false }));
@@ -47,7 +52,7 @@ function init(app) {
     // Unless the user is trying to go to the dashboard, if the user has a session (which would only be true if req.user is valid)
     // this automatically redirects them to the dashboard
     app.use((req, res, next) => {
-        if (req.path !== '/dashboard' && req.user) {
+        if (req.path !== '/dashboard' && req.path !== '/passwordReset' && req.user) {
             return res.redirect('/dashboard');
         }
 

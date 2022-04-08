@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.render('register', { csrfToken: req.csrfToken() });
+    res.render('register', { title: 'Register', csrfToken: req.csrfToken() });
 });
 
 module.exports = router;
