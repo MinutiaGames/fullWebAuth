@@ -23,7 +23,7 @@ function init(app) {
         cookie: {
             sameSite: true,
             httpOnly: true,
-            secure: process.env.NODE_ENV // When not in production, cookies do not require SSL
+            secureProxy: process.env.NODE_ENV // When not in production, cookies do not require SSL
         }
     }));
 
