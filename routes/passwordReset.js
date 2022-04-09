@@ -71,8 +71,8 @@ router.post('/', (req, res) => {
             from: process.env.NM_EMAIL,
             to: req.body.email,
             subject: 'Password Reset',
-            html: `Click <a href="http://localhost:5000/passwordReset?token=${generateResetToken({ resetHash: resetHash })}">here</a> to reset your password.`,
-            text: `If the link does not show, copy and paste the following address into the address bar http://localhost:5000/passwordReset?token=${generateResetToken({ resetHash: resetHash })}`
+            html: `Click <a href="https://pretendcoding-webauth.herokuapp.com/passwordReset?token=${generateResetToken({ resetHash: resetHash })}">here</a> to reset your password.`,
+            text: `If the link does not show, copy and paste the following address into the address bar https://pretendcoding-webauth.herokuapp.com/passwordReset?token=${generateResetToken({ resetHash: resetHash })}`
         }
 
         transporter.sendMail(mailOptions, (err, data) => {
