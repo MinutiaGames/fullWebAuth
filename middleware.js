@@ -49,16 +49,6 @@ function init(app) {
         });
     });
 
-    // Unless the user is trying to go to the dashboard, if the user has a session (which would only be true if req.user is valid)
-    // this automatically redirects them to the dashboard
-    app.use((req, res, next) => {
-        if (req.path !== '/dashboard' && req.path !== '/passwordReset' && req.user) {
-            return res.redirect('/dashboard');
-        }
-
-        next();
-    });
-
     // Display message on result of bad CSRF token
     app.use((err, req, res, next) => {
         if (err.code !== "EBADCSRFTOKEN") return next(err);

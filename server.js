@@ -20,11 +20,13 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
 const passwordResetRouter = require('./routes/passwordReset');
+const passwordConfirmRounter = require('./routes/passwordConfirm');
 
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/passwordReset', passwordResetRouter);
+app.use('/passwordConfirm', passwordConfirmRounter);
 
 app.listen(process.env.PORT || 3000);

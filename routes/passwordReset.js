@@ -23,11 +23,6 @@ router.get('/', (req, res) => {
         uuid: req.uuid,
         newPass: req.newPass
     });
-
-    // The email will contain a link which is basically website.com/passwordReset?Token=RandomStringOfCrap
-    // This random string of crap will be a json token which, when sent to the page in this way, will change the
-    // page so when it posts, it instead sets the user's password to the one typed in. If they don't have the token
-    // and the token they provided doesn't match one in the db
 });
 
 router.post('/', (req, res) => {
@@ -81,20 +76,9 @@ router.post('/', (req, res) => {
             }
             else {
                 console.log('Email sent');
-                return res.redirect('/');
+                return res.redirect('/passwordConfirm');
             }
         });
-
-
-
-
-        // else, email the user a token which they use to reset their password
-        // for now, we are pasting a string literal on the page for testing
-        // return res.render('passwordReset', {
-        //     title: 'Password Reset',
-        //     csrfToken: req.csrfToken(),
-        //     tokenLiteral: generateResetToken({ resetHash: resetHash })
-        // });
 
     });
 });
