@@ -8,6 +8,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 header.main-header {
@@ -18,6 +19,7 @@ header.main-header {
     margin: 0;
     width: 100%;
     background: var(--clr-background, pink);
+    margin-bottom: auto;
 }
 header.main-header > h1 {
     padding-left: 1em;
@@ -134,7 +136,7 @@ section {
 
 .container {
     width: 85%;
-    max-width: 65em;
+    /*! max-width: 80em; */
     margin: 0 auto;
 }
 
@@ -147,7 +149,7 @@ section {
 
 .split > * {
     flex-basis: 30%;
-    min-width: 15em;
+    min-width: 20em;
 }
 
 .spacing >*+* {
@@ -182,9 +184,14 @@ section {
 
 .section-title {
     text-align: center;
-    font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+    font-size: clamp(1rem, calc(2vw + 1rem), 2.5rem);
     line-height: 1;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.section-info > p {
+    text-shadow: 0 0 4px #eee;
 }
 
 .hero {
@@ -192,13 +199,14 @@ section {
     text-align: center;
     padding: 15em 0;
     background: #222;
+    position: relative;
 }
 
 @supports (background-blend-mode: multiply) {
     .hero {
         background:
-        url(./images/security.png),
-        radial-gradient(#444, #111);
+            url(./images/security.png),
+            radial-gradient(#444, #111);
         background-attachment: fixed;
         background-size: contain;
         background-repeat: no-repeat;
@@ -214,13 +222,52 @@ section {
     }
     .hero {
         background-position: center center;
+        top: 6em;
+    }
+    .split > *{
+        flex-basis: 32%;
+        min-width: 32em;
+    }
+    .section-info > img {
+        height: 320px;
+        float: left;
+        shape-outside: circle(52%);
+        margin: 1em;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .hero {
+        top:6em;
     }
 }
 
 /* Mobile */
-@media only screen and (max-width: 901px) {
+@media only screen and (max-width: 899px) {
     .desktop-only {
         display: none;
+    }
+    .section-info > .security-and-trust {
+        background:
+            url('./images/SecurityAndTrust.png'), rgba(238,238,238,0.5);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-blend-mode:hue;
+    }
+
+    .section-info > .authentication {
+        background: url('./images/Authentication.png');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .section-info > .authorization {
+        background: url('./images/Authorization.png');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
     }
 }
 
@@ -282,15 +329,11 @@ section {
 }
 
 .animal-bear {
-    --clr-inner:red;
-    --clr-outer: orange;
-    --clr-accent: limegreen;
+    --clr-inner: #caf;
+    --clr-outer: #939;
+    --clr-accent: #33f;
 }
 
-.animal-ax {
-
-}
-
-.animal-pang {
-
+.product__description {
+    text-shadow: 0 0 5px #ccc;
 }
