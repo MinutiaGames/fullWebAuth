@@ -192,6 +192,7 @@ section {
 
 .section-info > p {
     text-shadow: 0 0 4px #eee;
+    font-weight: 500;
 }
 
 .hero {
@@ -329,8 +330,8 @@ section {
 }
 
 .animal-bear {
-    --clr-inner: #caf;
-    --clr-outer: #939;
+    --clr-inner: #fff;
+    --clr-outer: #aaa;
     --clr-accent: #33f;
 }
 
