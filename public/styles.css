@@ -250,7 +250,7 @@ section {
     }
     .section-info > .security-and-trust {
         background:
-            url('./images/SecurityAndTrust.png'), rgba(238,238,238,0.5);
+            url('./images/SecurityAndTrust.png'), rgba(170, 170, 170, 0.5);
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
@@ -273,7 +273,7 @@ section {
 }
 
 .featured {
-    background: #eee;
+    background: #aaa;
 }
 
 .featured__item {
