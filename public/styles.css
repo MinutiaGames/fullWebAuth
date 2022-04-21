@@ -2,6 +2,7 @@
     --clr-background: white;
     --clr-heading-text: #006;
     --size-mobile-font: 1.3em;
+    --clr-login-btn: rgb(23, 189, 255);
 }
 
 *,
@@ -337,4 +338,37 @@ section {
 
 .product__description {
     text-shadow: 0 0 5px #ccc;
+}
+
+.login-wrap {
+    position: fixed;
+    bottom: 0;
+    background-color: green;
+    width: 100%;
+    height: 100%;
+    padding: 50vh 10vw;
+}
+.login-wrap > form {
+    outline: 1px solid red;
+    display: grid;
+}
+.login-wrap > form > div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: right;
+}
+.login-wrap > form > div > label {
+    padding-right: 0.5em;
+}
+.login-wrap > form > button {
+    width: 30%;
+    transition: 0.5s;
+}
+.login-wrap > form > button:hover {
+    background-color: var(--clr-login-btn);
+    box-shadow: 
+        0 0 5px var(--clr-login-btn),
+        0 0 25px var(--clr-login-btn),
+        0 0 50px var(--clr-login-btn),
+        0 0 100px var(--clr-login-btn);
 }
