@@ -4,6 +4,7 @@
     --size-mobile-font: 1.3em;
     --clr-login-btn: #1161ee;
     --clr-error-msg: #c22;
+    --clr-btn-hover: #2171fe;
 }
 
 *,
@@ -440,10 +441,19 @@ section {
 }
 .login-form .group .label{
 	color:#aaa;
-	font-size:12px;
+    font-size: .8em;
 }
 .login-form .group .button{
 	background:var(--clr-login-btn);
+    transition: all .2s linear;
+}
+.login-form .group .button:hover {
+    background: var(--clr-btn-hover);
+    box-shadow:
+        0 0 5px var(--clr-btn-hover),
+        0 0 25px var(--clr-btn-hover),
+        0 0 50px var(--clr-btn-hover),
+        0 0 100px var(--clr-btn-hover);
 }
 .login-form .group label .icon{
 	width:15px;
