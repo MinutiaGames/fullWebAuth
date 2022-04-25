@@ -2,7 +2,8 @@
     --clr-background: white;
     --clr-heading-text: #006;
     --size-mobile-font: 1.3em;
-    --clr-login-btn: rgb(23, 189, 255);
+    --clr-login-btn: #1161ee;
+    --clr-error-msg: #c22;
 }
 
 *,
@@ -342,33 +343,40 @@ section {
 
 /* Login / Registration Form */
 .login-wrap {
+    padding: 0;
+    top: 7em;
     width: 100%;
     margin: auto;
-    max-width: 525px;
-    min-height: 670px;
+    max-width: 33em;
+    min-height: 37em;
     position: relative;
     background: #334;
     box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-    z-index: 5;
+/*     z-index: 5; */
 /*     z index is temp while I'm working */
 }
 .login-html {
     width: 100%;
     height: 100%;
     position: absolute;
-    padding: 90px 70px 50px 70px;
-/*     I think this padding is a bit overkill */
+    padding: 2em 1em 0 1em;
     background: rgba(40,57,101,0.9)
 }
+.sign-in-htm {
+    display: none;
+}
+.sign-up-htm {
+    display: none;
+}
 .login-html .login-form {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    transition: all .4s linear;
+    /*! top: 0; */
+    /*! left: 0; */
+    /*! right: 0; */
+    /*! bottom: 0; */
+/*! position: absolute; */
+/*! transform: rotateY(180deg); */
+    /*! backface-visibility: hidden; */
+/*     transition: all .4s linear; */
 }
 /* hiding the checkboxes, instead using the labels to check/uncheck them */
 .login-html .sign-in,
@@ -397,25 +405,33 @@ section {
 }
 .login-form{
 	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
+	/*! position:relative; */
+	/*! perspective:1000px; */
+	/*! transform-style:preserve-3d; */
 }
 .login-form .group{
 	margin-bottom:15px;
 }
 .login-form .group .label,
 .login-form .group .input,
-.login-form .group .button{
-	width:100%;
+.login-form .group .button 
+{
 	color:#fff;
 	display:block;
+    border: none;
+}
+.login-form .group .label,
+.login-form .group .input {
+	width:100%;
+}
+.login-form .group .button {
+    width: 50%;
+    margin: auto;
 }
 .login-form .group .input,
-.login-form .group .button{
-	border:none;
+.login-form .group .button {
 	padding:15px 20px;
-	border-radius:25px;
+	border-radius:0.25em;
 	background:rgba(255,255,255,.1);
 }
 .login-form .group input[data-type="password"]{
@@ -427,7 +443,7 @@ section {
 	font-size:12px;
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:var(--clr-login-btn);
 }
 .login-form .group label .icon{
 	width:15px;
@@ -470,10 +486,12 @@ section {
 	transform:scale(1) rotate(-45deg);
 }
 .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
+/* 	transform:rotateY(0deg); */
+    display: block;
 }
 .login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
+/* 	transform:rotate(0); */
+    display: block;
 }
 
 .hr{
@@ -483,4 +501,10 @@ section {
 }
 .foot-lnk{
 	text-align:center;
+}
+.error-message {
+    width: 100%;
+    text-align: center;
+    color: var(--clr-error-msg);
+    text-shadow: 0 0 3px black;
 }

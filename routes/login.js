@@ -4,6 +4,9 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
+    if (req.user) {
+        return res.redirect('dashboard');
+    }
     res.render('login', { title: 'Login', csrfToken: req.csrfToken() });
 });
 

@@ -4,6 +4,12 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 
 router.post('/', (req, res) => {
+    console.log('before csrf?');
+    if (req.body.password.length != 2 || req.body.password[0] !== req.body.password[1]) {
+        let error = "Passwords must match";
+        return res.render('login', {error: error});
+    }
+    req.body.password = req.body.password[0];
     const hash = bcrypt.hashSync(req.body.password, parseInt(process.env.BCRYPT_WORK_FACTOR));
     req.body.password = hash;
 
