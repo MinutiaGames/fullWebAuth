@@ -14,6 +14,7 @@ function main() {
     const navButton = $('#mobile-nav-menu-button');
     const mobileNavManu = $('#mobile-nav-menu');
     const navCloseButton = $('#nav-close-button');
+    const loginButton = $('#login-button');
 
     navButton.addEventListener('click', () => {
         mobileNavManu.classList.add('mobile-nav-menu-open');
@@ -21,6 +22,12 @@ function main() {
 
     navCloseButton.addEventListener('click', () => {
         mobileNavManu.classList.remove('mobile-nav-menu-open');
+    });
+
+    loginButton.addEventListener('click', () => {
+        const loginWindow = $('.login-wrap')
+
+        loginWindow.classList.toggle('hidden');
     });
 
 }

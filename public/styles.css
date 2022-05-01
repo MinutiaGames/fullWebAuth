@@ -14,6 +14,10 @@
     scroll-behavior: smooth;
 }
 
+a {
+    cursor: pointer;
+}
+
 header.main-header {
     display: block;
     z-index: 1;
@@ -517,4 +521,18 @@ section {
     text-align: center;
     color: var(--clr-error-msg);
     text-shadow: 0 0 3px black;
+}
+
+.drop-down-menu {
+/*     display: block; */
+    position: fixed;
+    top: 3em;
+    right: 1em;
+    z-index: 1;
+    transition: all .4s ease-in-out;
+}
+
+.hidden {
+/*     display: none; */
+    right: -100vw;
 }

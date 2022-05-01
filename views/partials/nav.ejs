@@ -4,7 +4,7 @@
         <a href="/dashboard">Dashboard</a>
         <!-- <a href="/register">Register</a> -->
         <!-- <a href="/passwordReset">Password Reset</a> -->
-        <a href="/login">Login</a>
+        <a id="login-button">Login</a>
     </nav>
     <hr class="desktop-only" />
     <section>
@@ -23,3 +23,84 @@
     <!-- <a href="/register">Register</a> -->
     <!-- <a href="/passwordReset">Password Reset</a> -->
 </nav>
+
+<section class="login-wrap hidden drop-down-menu desktop-only">
+    <div class="login-html">
+        <input name="tab" type="radio" class="sign-in" id="tab-1" checked><label for="tab-1" class="tab">Sign In</label>
+        <input name="tab" type="radio" class="sign-up" id="tab-2"><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <form action="/login" method="post" class="sign-in-htm">
+                <div class="group">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" name="email" required="true" class="input" />
+                </div>
+                
+                <div class="group">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" name="password" required="true" class="input" data-type="password" />
+                </div>
+                
+                <div class="group">
+                    <input type="checkbox" name="keep-signed-in" id="check" class="check" checked>
+                    <label for="keep-signed-in"><span class="icon"></span> Keep me signed in</label>
+                </div>
+                
+                <div class="group">
+                    <input type="submit" value="Sign In" class="button" />
+                </div>
+                
+                <hr />
+                
+                <div class="foot-lnk">
+                    <a href="#forgot">Forgot Password?</a>
+                </div>
+                
+                <input type="hidden" name="_csrf" value=<%= locals.csrfToken %> />
+                
+                <% if (locals.error !== undefined) { %>
+                    <p class="error-message"><%= locals.error %></p>
+                    <!-- This will only show if there is an incorrect email/password -->
+                <% } %>
+            </form>
+            <form action="/register" method="post" class="sign-up-htm">
+                <div class="group">
+                    <label for="firstName" class="label">First Name</label>
+                    <input type="text" name="firstName" required="true" class="input" />
+                </div>
+
+                <div class="group">
+                    <label for="lastName" class="label">Last Name</label>
+                    <input type="text" name="lastName" required="true" class="input" />
+                </div>
+
+                <div class="group">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" name="email" required="true" class="input" />
+                </div>
+                
+                <div class="group">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" name="password" required="true" class="input" data-type="password" />
+                </div>
+                
+                <div class="group">
+                    <label for="password" class="label">Repeat Password</label>
+                    <input type="password" name="password" required="true" class="input" data-type="password" />
+                </div>
+                
+                <div class="group">
+                    <input type="submit" value="Sign Up" class="button" />
+                </div>
+                
+                <hr />
+                
+                <div class="foot-lnk">
+                    <label for="tab-1">Already Member?</label>
+                </div>
+                
+                <input type="hidden" name="_csrf" value=<%= locals.csrfToken %> />
+                
+            </form>
+        </div>
+    </div>
+</section>
